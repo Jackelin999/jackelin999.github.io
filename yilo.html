@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>¡Feliz Cumpleaños Angie!</title>
+    <style>
+        body {
+            background-color: #bda4b3;
+            text-align: center;
+            font-family: Arial, sans-serif;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            flex-direction: column;
+        }
+        h1 {
+            color: #d63ba5;
+            font-size: 3rem;
+        }
+        .balloon {
+            width: 50px;
+            height: 70px;
+            background-color: red;
+            border-radius: 50%;
+            position: absolute;
+            bottom: -100px;
+            animation: float 5s infinite ease-in-out;
+        }
+        .string {
+            width: 2px;
+            height: 50px;
+            background-color: black;
+            position: absolute;
+            left: 50%;
+            top: 100%;
+            transform: translateX(-50%);
+        }
+        @keyframes float {
+            0% { transform: translateY(0); opacity: 1; }
+            100% { transform: translateY(-800px); opacity: 0; }
+        }
+        .confetti {
+            width: 8px;
+            height: 8px;
+            background-color: rgb(255, 34, 0);
+            position: absolute;
+            top: 0;
+            opacity: 0.7;
+            animation: fall 4s linear infinite;
+        }
+        @keyframes fall {
+            0% { transform: translateY(0); }
+            100% { transform: translateY(100vh); }
+        }
+        .cat-container {
+            margin-top: 20px;
+        }
+        .cat-container img {
+            width: 200px;
+            height: auto;
+        }
+    </style>
+</head>
+<body>
+    <h1>🎉⭐⭐⭐ ¡Feliz Cumpleaños Angie!⭐⭐⭐ 🎈</h1>
+    <div class="cat-container">
+        <img src="image.png" alt="Gatito con pastel y globos">
+    </div>
+    <script>
+        function createBalloon() {
+            let balloon = document.createElement("div");
+            balloon.classList.add("balloon");
+            balloon.style.left = Math.random() * window.innerWidth + "px";
+            balloon.style.backgroundColor = `hsl(${Math.random() * 360}, 100%, 50%)`;
+            document.body.appendChild(balloon);
+            setTimeout(() => balloon.remove(), 5000);
+        }
+        function createConfetti() {
+            let confetti = document.createElement("div");
+            confetti.classList.add("confetti");
+            confetti.style.left = Math.random() * window.innerWidth + "px";
+            confetti.style.backgroundColor = `hsl(${Math.random() * 360}, 100%, 50%)`;
+            document.body.appendChild(confetti);
+            setTimeout(() => confetti.remove(), 4000);
+        }
+        setInterval(createBalloon, 500);
+        setInterval(createConfetti, 200);
+    </script>
+</body>
+</html>
